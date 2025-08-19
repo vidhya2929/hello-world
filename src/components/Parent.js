@@ -12,7 +12,7 @@ export class Parent extends Component {
   greetParent(childName){
     alert(`hello ${this.state.parentName} from ${childName}`)
   }
-  
+  // 
   render() {
     return (
       <div>

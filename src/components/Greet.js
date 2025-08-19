@@ -7,12 +7,18 @@ import React from 'react' //any component we are creating must be imported
 // rewrite the greet function with es6 a rrow function syntax
 // reusabililty =>
 const Greet = (props) => {                        //functional component
-  console.log(props)
+// destructuring here we are extracting the name,heroName from the props object 1 way
+// const Greet = ({name, heroName}) => {
+  // 2nd way of destructuring
+  const {name, heroName} = props
+  // console.log(props)
  return (
   <div>
- <h1>Hello {props.name} a.k.a{ props.heroName}</h1>
+ {/* <h1>Hello {props.name} a.k.a{ props.heroName}</h1> */}
+ {/* After destructuring */}
+ <h1> Hello {name} a.k.a {heroName}</h1>
 {/* JSX should contain only one wrapper element */}
- {props.children}
+ {/* {props.children} */}
  </div>
 //  we can return only one HTML element, so enclose all content in one wrapper 
 ) //(a.k.a => also known as)

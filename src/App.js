@@ -6,25 +6,37 @@ import Greet from './components/Greet'  //omit the .js extension
 import Welcome from  './components/Welcome'
 import Hello from './components/Hello';
 import { Component } from 'react';
-
+import Message from './components/Message';
+import Counter from './components/Counter';
+import Functionclick from './components/Functionclick';
+import ClassClick from './components/ClassClick';
+import EventBind from './components/EventBind';
+import Parent from './components/Parent';
+import UserGreeting from './components/UserGreeting';
 function App() {
   // class App extends Component{
   //   render(){}
   // }
   return ( 
     <div className="App">
-      <Greet name="Bruce" heroName = "Batman"><p>This is children props  </p></Greet>     
+      <UserGreeting/>
+      {/* <Parent/> */}
+      {/* <Greet name="Bruce" heroName = "Batman"><p>This is children props  </p></Greet>     
       <Greet  name="Clark" heroName = "Spiderman"/>
       <button>
-        Action
-      </button>
-       <Greet name="Diana " heroName = "Thor"/> {/*  if there is no content inside it then we can change it into a self-cloding tag 
-      // <Welcome /> */}  {/*it is a class component and it is dupliacted twice*/}
-      <Welcome name="Bruce" heroName = "Batman"/>
-      <Welcome name="clark" heroName = "Spiderman"/>
-      <Welcome name="Diana" heroName = "Wonder Women"/>
-
-      <Hello />
+        Action */}
+      {/* </button> */}
+       {/* <Greet name="Diana " heroName = "Thor"/> {/*  if there is no content inside it then we can change it into a self-cloding tag  */}
+      {/* // <Welcome /> */} {/*} it is a class component and it is dupliacted twice */}
+       {/* <Welcome name="Bruce" heroName = "Batman"/> 
+       <Welcome name="clark" heroName = "Spiderman"/> 
+   <Hello name="Diana" heroName = "Wonder Women"/> */}
+   {/* <Functionclick />
+   <ClassClick/> */}
+   {/* <EventBind /> */}
+      {/* <Message /> */}
+      {/* <Hello /> */}
+      {/* <Counter /> */}
    </div>
   );
 }
@@ -36,3 +48,5 @@ export default App;
 // 2)return {props.name}
 // when specifying the component we can include additional attributes, React bundle all such attributes into an object (props)
 // props are immutable (it's value cannot be changed)
+
+

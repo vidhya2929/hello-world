@@ -33,7 +33,7 @@ creating React Applications ->react app package
 
  Folder structure of react application created using "create react app"
 
- package.json => it cobtains the dependencies and the scriots required for the project
+ package.json => it contains the dependencies and the scripts required for the project
  node_modules folder => All the dependencies are installed here and it is generated when we run the create react app command or npm install
  public folder => contains 3 files => manifest.json is concerned with progressive web apps (not needed), index.html => It is the only html file that is in our application and not going to make any changes excpet some changes in the head tag
  the index.html have 1 div tag with the id="root" at run time the react application takes over this div tag and is resposible for the UI
@@ -181,3 +181,36 @@ works in the same way as the conditions work in JavaScript
       It can be used inside the JSX
 4) Short circuit operator
   specific case of ternary operator approach, when you want to render something or nothing short-circuit-operator is used
+
+How to display some list in React(in HTML we repeat some code for each item in the list) LIST RENDERING
+
+map() => accepts a function as an argument , map method goes over each element in the array and apply a transformation specified in the function body
+
+arr.map(para => function to be performed)
+
+When we have a list of objects with a few properties that have to be rendered
+Refactot the JSX into a seperate component and then use the component in the map method JSX   => person,personList
+
+Lists and Keys
+A "key" is a special string attribute you need to include when creating list of elements
+Keys give the element a stable identity
+Keys help React which items have changed, are added, or are removed.
+Help in efficient update of user interface
+
+How to use the index as a key when rendering lists
+The index is given as second parameter to the arrow function within the map method and that index is used as a value to the key prop
+
+Index as Key
+(when to use index as a key)
+
+1)The items in your list do not have a unique id.
+2)The list is a static list and will not change.
+3)The list will never be reordered or filtered.
+
+Styling React Components
+
+ways to style react components
+1)Regular CSS stylesheets
+2)Inline styling
+3)CSS modules
+4)CSS in JS Libraries (styled components)

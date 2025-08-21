@@ -26,3 +26,4 @@ export default Parent
 
 
 // Methods as props in react component
+// 

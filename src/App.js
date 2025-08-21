@@ -13,13 +13,19 @@ import ClassClick from './components/ClassClick';
 import EventBind from './components/EventBind';
 import Parent from './components/Parent';
 import UserGreeting from './components/UserGreeting';
+import NameList from './components/NameList';
+import PersonList from './components/PersonList';
+import Stylesheet from './components/Stylesheet';
 function App() {
   // class App extends Component{
   //   render(){}
   // }
   return ( 
     <div className="App">
-      <UserGreeting/>
+      <Stylesheet />
+      {/* <PersonList/> */}
+      {/* <NameList/> */}
+      {/* <UserGreeting/> */}
       {/* <Parent/> */}
       {/* <Greet name="Bruce" heroName = "Batman"><p>This is children props  </p></Greet>     
       <Greet  name="Clark" heroName = "Spiderman"/>

@@ -16,13 +16,25 @@ import UserGreeting from './components/UserGreeting';
 import NameList from './components/NameList';
 import PersonList from './components/PersonList';
 import Stylesheet from './components/Stylesheet';
+import Inline from './components/Inline';
+import './appStyles.css'                             // note the difference in importing the module stylesheet
+import styles from './appStyles.module.css'
+import Form from './components/Form';
+import LifeCycleA from './components/LifeCycleA';
 function App() {
   // class App extends Component{
   //   render(){}
   // }
   return ( 
     <div className="App">
-      <Stylesheet />
+      <LifeCycleA/>
+      {/* <Form /> */}
+      {/* <h1 className='error'>Error</h1>  {/*Error is the classname in the regular stylesheet*/}
+      {/* <h1 className={styles.success}>Success</h1> success is the classname from the module style sheet */} 
+      {/* It cannot be used in the child component as it isuse 'styles.' */}
+      {/* <Inline/> */}
+      {/* Applying a class based on a prop or state of the component and pass props as parameter */}
+      {/* <Stylesheet primary = {true}/> */}
       {/* <PersonList/> */}
       {/* <NameList/> */}
       {/* <UserGreeting/> */}

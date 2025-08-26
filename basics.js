@@ -233,7 +233,7 @@
 // 4 methods for Mounting => constructor,static getDerivedStateFromProps, render and componentDidMount
 
 // updating => when a component is being re-rendered as a result of changes to either its props or state
-// 5 methods for updating => static getDerivedStateFromProps, shouldComponentUpdate, render, getSnapshotBeforeUpdate andcomponentDidUpdate
+// 5 methods for updating => static getDerivedStateFromProps, shouldComponentUpdate, render, getSnapshotBeforeUpdate and componentDidUpdate
 
 // Unmounting => when a component is being removed from the DOM
 // 1 method => componentWillUnmount
@@ -261,5 +261,63 @@
 // Do not change state or interact with DOM or make ajax calls
 //Since it is a render method JSX, which also contains the other children component rightAfter the parent render method children components lifecycle methods are also executed
 
-// 4)componentDIdMount() => This method will be called only once in the whole lifecycle of a given component and it is invoked immediately after a component and all its children components have been rendered to the DOM.
+// 4)componentDidMount() => This method will be called only once in the whole lifecycle of a given component and it is invoked immediately after a component and all its children components have been rendered to the DOM.
 // perfect to cause side effects .eg: Interact with the DOM or perform any ajax calls to load data.
+
+
+// UPDATING LIFECYCLE METHODS
+// 1) static getDerivedStateFromProps(props,state) => Method is called every time a component is re-rendered. It is used when the 'state' depends on the props of the component.(rarely used method)
+// 2) shouldComponentUpdate(nextProps, nextState) =>Dictates if the component should re-render or not(by default all class components will re-render when the state changes)
+//                                                  Performance Optimization
+//                                                  Do not cause sie Effects. eg: HTTP requests .Calling the setState method
+//                                                  (rarely used)
+// 3)render() =>above
+// 4)getSnapshotBeforeUpdate(prevProps,prevState) =>Called right before the changes from the virtual DOM are to be reflected in the DOM(rarely used)
+//                                                  Capture some information from the DOM
+//                                                  Method will either return null or return a value.Returned value will be passed as the third parameter to the componentDidUpdate(next method)
+// 4)componentDidUpdate(prevProps, prevState, snapshot)  => Called after the render is finished in the re-render cycles. Called only once.
+//                                                          Cause side effects
+
+// UNMOUNTING =>
+  // 1)componentWillUnmount() =>Method is invoked immediately before a component is unmounted and destroyed 
+//                              Cancelling any network requests, removing event handlers, cancelling any subscriptions and also invalidating timers.
+//                              Do not call the setState method
+// Error Handling Phase Methods
+// 1)static getDerivedStateFromError(error)
+// 2)ComponentDidCatch(error, info)
+// These two are used when there is an error either during rendering, in a lifecycle method, or in the constructor of any child component
+
+// Fragments                                        ==>FragmentDemo.js
+// let us to group a list of children elements without adding extra nodes to the DOM
+// It can accepts the 'key' attribute when rendering the list of items
+
+
+// PURE Component 
+// Only work with class based components
+// while using pure component never mutate the state.Always return a new object that reflects the new state
+// prevents unneccessary renders
+// 2nd way to create a class component
+// snippet => rpce
+
+// Regular Component                                  
+// A regular component does not implement the shouldComponentUpdate method.It always returns true by default.
+
+
+// Pure Component
+// A pure component on the other hand implements shouldComponentUpdate with a shallow props and state comparison
+
+// Shallow Comparison (SC)
+// Primitive Types
+// a (SC) b returns true if a and b have the same value and are of the same type
+// eg: string 'Vishwas' (SC) string 'Vishwas' returns true
+
+// Complex Types
+// a (SC) b returns true if a and b reference the exact same object
+
+
+// SC of prevState with currentState
+// Sc of prevProps with currentProps     
+// If there is a difference between these then the component will Re-render
+
+// Pure Comp to classbased components
+// memo.react yo functional components

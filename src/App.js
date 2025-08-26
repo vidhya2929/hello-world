@@ -21,13 +21,20 @@ import './appStyles.css'                             // note the difference in i
 import styles from './appStyles.module.css'
 import Form from './components/Form';
 import LifeCycleA from './components/LifeCycleA';
+import FragmentDemo from './components/FragmentDemo';
+import Table from './components/Table';
+import PureComp from './components/PureComp';
+import ParentComp from './components/ParentComp';
 function App() {
   // class App extends Component{
   //   render(){}
   // }
   return ( 
     <div className="App">
-      <LifeCycleA/>
+      <ParentComp/>
+      {/* <Table /> */}
+      {/* <FragmentDemo /> */}
+      {/* <LifeCycleA/> */}
       {/* <Form /> */}
       {/* <h1 className='error'>Error</h1>  {/*Error is the classname in the regular stylesheet*/}
       {/* <h1 className={styles.success}>Success</h1> success is the classname from the module style sheet */} 

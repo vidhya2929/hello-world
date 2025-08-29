@@ -1,6 +1,9 @@
 // cd ~/Downloads/React/hello-world
 //  npm install
 //  npm start
+
+import { useEffect } from "react";
+
  
 //  REACT
 //  Open source library for building user interfaces
@@ -243,7 +246,7 @@
 
 // //Mounting =>
 // 1)constructor(props) => A special function that will get called whenever a new component is created
-//                       It is perfect for initializing the state and bindingthe event handlers
+//                       It is perfect for initializing the state and binding the event handlers
 //                       don't make HTTP requests from within the constructor
 // when defining our own constructor =>
 // 1.1)call a special function called "super" it will call the baseclass constructor =>In our component we have access to this.props only after we have initially called super passing the props as argument
@@ -320,4 +323,122 @@
 // If there is a difference between these then the component will Re-render
 
 // Pure Comp to classbased components
-// memo.react yo functional components
+// memo.react to functional components
+
+// Refs                    => RefsDemo.js,input.js,FocusInput.js
+// Access DOM nodes directly with in react(functional component)
+// Usecases =>Using createRef()
+// 1)Focussing the input field
+// 2) Fetch the input value
+// second method => callback refs
+
+// Forwarding Refs
+// It is a technique of automatically passing a ref through a component to one of it's children
+
+// React Portals   =>PortalDemo.js
+// provide a way to render children into a DOM node that exists outside the DOM hierarchy of parent component
+// In DOM tree,Every single component in the application falls under the root element
+// So React Portal gives the ability to break out of this DOM tree
+
+
+// Error Handling Phase Methods => static getDerivedStateFromError(error) , componentDidCatch(error, info)                              ===>>>Hero.js, ErrorBoundary.js
+// Error Boundary ==> A class component that implements either one or both of the lifeCycle methods  getDerivedStateFromError or componentDidCatch 
+// Static getDerivedStateFromError => used to render a fallback UI after an error is thrown
+// componentDidCatch => Used to log the error information
+
+// Error boundaries are React components that catch JavaScript error in thier child component tree, log those errors, and display a fall-back UI
+// A class component becomes an Error Boundary by defining either or both of getDerivedStateFromError and componentDidCatch lifecycle methods.
+// The placement of the Error Boundary also matters as it controls if the entire app should have the fall=back UI or just the component causing the problem.
+// Provide a way to gracefully handle error in application code
+
+// Higher Order Components       ===>>> ClickCounter.js,HoverCounter.js,  withCounter.js
+// To share common functionality between  components
+// A pattern where a function takes a component as an argument and returns a new component
+
+const NewComponent = higherOrderComponent(originalComponent)
+const EnhancedComponent = higherOrderComponent(originalComponent)
+
+const IronMan = withSuit(TonyStark)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useEffect => run side effects in functional components
+// eg; fetching data, timers, subscriptions, DOM manipulation, logging, etc..
+// In class components, we used componentDidMount, componentDidUpdate, componentWillUnmout.In functional components, all of these are replaced by useEffect
+// 'Dependency array' decides when the effect runs
+
+// Syntax
+// useEffect (() =>{
+//   return() => {
+
+//   }
+// },[dependencies]);
+// No Dependency Array
+useEffect(() =>{
+  console.log("Runs after every render");                                                              
+});
+// Empty Array
+useEffect(() =>{
+  console.log("Runs only once(on mount)");
+}, []);  //runs only once like componentDidMount
+// With dependencies
+useEffect(() =>{
+  console.log("Runs when count changes");
+},[count]);
+// Runs only when count changes
+
+// MOUNTING(when component is created)  constructor() -; initialize state , bind methods          || just initialize state with useState.
+// static getDerivedStateFromProps(props, state)      -; Sync state with props                    || Use useEffect with prop in dependency array
+// render()                                           -; Return JSX to display UI                 || function component's body itself is the render.
+// componentDidMount()                                -;Runs once after initial render            || useEffect(() => {...}, [])
+//                                                     (good forAPI calls,timers,subscriptions)
+
+// UPDATING(when props/state change)
+// static getDerviedStateFromProps(props, state)      -;Update state when props change.           ||Compute inside function or useEfffect([prop])
+// shouldComponentUpdate(nextProps,nextState)         -;Optimize performance by preventing        ||React Memo + useMemo / useCallback
+//                                                      re-render 
+// getSnapshotBeforeUpdate(prevProps, prevState)      -;Capture DOM info before update            ||useLayoutEffect(() =>{...},[dependencies])
+
+// UNMOUNTING (when component is removed)
+// componentDidUpdate(prevProps,PrevState, snapshot)  -;Runs after update, can use snapshot       ||useEffect(() => {return ()=> {.....};}, [])
+
+// ERROR HANDLING
+// componentDidCatch(error, info)                     -;Catch errors in child components          ||ErrorBoundary(still needs class component, no Hook equivalent yet)
+// static getDerivedStateFromError(error)             -;Update state after error                  ||same as above
+
+
+// useState lets add state to function components
+// Can store any data type , eg:const isOnline,setIsOnline] = useState(true)
+// Updating state replaces it not merged
+//Functional updates => if new state depends on old state -> use a function:  setCount(prevCount => prevCount + 1)
+// Lazy Initialization =>if initial value is expensive to compute -> pass a function: 
+          // const[value, setValue] =museState(() => {
+          // console.log("Expensive calculation runs once");
+          // return 42;
+          // });
+// can call 'useState' multiple times in one component
+// In class Components, we used 'this.state' and 'this.setState,' In function component we use 'useState'
+
+

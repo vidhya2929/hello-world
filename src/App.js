@@ -25,13 +25,45 @@ import FragmentDemo from './components/FragmentDemo';
 import Table from './components/Table';
 import PureComp from './components/PureComp';
 import ParentComp from './components/ParentComp';
+import RefsDemo from './components/RefsDemo';
+import InputFocus from './components/InputFocus';
+import FRParentInput from './components/FRParentInput';
+import ClassTimer from './components/ClassTimer';
+import HookTimer from './components/HookTimer';
+import PortalDemo from './components/PortalDemo';
+import Hero from './components/Hero';
+import ErrorBoundary from './components/ErrorBoundary';
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverCounter';
 function App() {
   // class App extends Component{
   //   render(){}
   // }
   return ( 
     <div className="App">
-      <ParentComp/>
+    <HoverCounter/>
+    <ClickCounter/>
+
+      {/* <ErrorBoundary>
+      <Hero heroName="Batman"></Hero>
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+      <Hero heroName="Superman"></Hero>
+      </ErrorBoundary> */}
+
+      {/* As we give 'joker', then the whole content become error rather than that particular element*/}
+      {/* <ErrorBoundary>
+      <Hero heroName="Joker"></Hero> 
+      </ErrorBoundary> */}
+      
+      {/* <PortalDemo/> */}
+      {/* <HookTimer/>
+      <ClassTimer/> */}
+      {/* <FRParentInput/> */}
+      {/* <InputFocus/> */}
+      {/* <RefsDemo/> */}
+      {/* <ParentComp/> */}
       {/* <Table /> */}
       {/* <FragmentDemo /> */}
       {/* <LifeCycleA/> */}

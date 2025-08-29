@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import RegComp from './RegComp'
 import PureComp from './PureComp'
+import MemoComp from './MemoComp'
 
  class ParentComp extends Component {
   // to change the state
@@ -24,9 +25,10 @@ import PureComp from './PureComp'
     return (
       <div>
         Parent Component
+        <MemoComp name={this.state.name}/>
         {/* Include the regular and pure components in the JSX passing in name as a prop*/}
-        <RegComp name={this.state.name}></RegComp>
-        <PureComp name={this.state.name}></PureComp>
+        {/* <RegComp name={this.state.name}></RegComp>
+        <PureComp name={this.state.name}></PureComp> */}
         {/* When the render method is called in each of the components */}
       </div>
     )

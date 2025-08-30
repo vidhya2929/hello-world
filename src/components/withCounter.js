@@ -26,3 +26,4 @@ export default withCounter
 // Apply this to the ClickCounter and HoverCounter
 
 // A function that accepts a component and returns an enhanced component
+// j

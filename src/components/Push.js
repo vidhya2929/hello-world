@@ -15,3 +15,21 @@ function Counter() {
 }
 
 export default Counter;
+
+
+import React, { useState } from "react";
+
+function ToggleButton() {
+  const [isOn, setIsOn] = useState(false);
+
+  return (
+    <div>
+      <h1>{isOn ? "The Light is ON 💡" : "The Light is OFF 🔌"}</h1>
+      <button onClick={() => setIsOn(!isOn)}>
+        {isOn ? "Turn Off" : "Turn On"}
+      </button>
+    </div>
+  );
+}
+
+export default ToggleButton;

@@ -23,5 +23,5 @@ import withCounter  from './withCounter'
 }
 
 export default withCounter(ClickCounter)
-// TO reuse the code
+// To reuse the code
 // Lift counter logic to Parent and pass props

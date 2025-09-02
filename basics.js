@@ -351,32 +351,53 @@ import { useEffect } from "react";
 // The placement of the Error Boundary also matters as it controls if the entire app should have the fall=back UI or just the component causing the problem.
 // Provide a way to gracefully handle error in application code
 
-// Higher Order Components       ===>>> ClickCounter.js,HoverCounter.js,  withCounter.js
+// Higher Order Components       ===>>> ClickCounter.js,HoverCounter.js,  withCounter.js   
 // To share common functionality between  components
 // A pattern where a function takes a component as an argument and returns a new component
 
-const NewComponent = higherOrderComponent(originalComponent)
-const EnhancedComponent = higherOrderComponent(originalComponent)
+const NewComponent = higherOrderComponent(OriginalComponent)
+const EnhancedComponent = higherOrderComponent(OriginalComponent)
 
-const IronMan = withSuit(TonyStark)
+const IronMan = withSuit(Tonystark)
 
-
-
-
-
+// Render Props           ClickCounter2.js , hoverCounter2.js , User.js, CounterRender.js
+// Like HOC (higher Order Function) => it helps to avoid repeated code, instead of that resude the existing code
 
 
+class counter extends React.Component{
+  state = {count: 0};
+
+  incrementCount = () => {
+    this.setSTatte((prev) => ({count: prev.count + 1}));
+  };
+  render(){
+    return this.props.children(this.state.count, this.incrementCount);
+    // counter keeps the state and a method incrementCount.instead of returning its own JSX, Counter calls this.props.children(...).ehatever ypu pass inside <counter>...</counter> must be a function.That function receives(count, incrementCount) and returns the JSX you want.
+  }
+}
 
 
+// In react it is possible to use a prop whose value is a function to control what is actually rendered by a component
+// The term "render prop" refers to a technique for sharing code between React components using a prop whose value is a function
+// render props components : don't return fixed JSX.Instead they give control to the parent byt accepting a function(props.children).
 
 
+// CONTEXT                                      =>>ComponentC.js , ComponentE.js , ComponentF.js
+// Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+// pass username value from app component'c' and read that value in component 'f'  C-> E-> F
+
+// 3 STEPS TO IMPLEMENT CONTEXT
+// 1) Create the context
+// 2) Provide a context value
+// 3)Consume the context value               through the component tree
 
 
+// * we can set a default value to the context .default value is set while creating the context. It is passed as an argument to the create Context method
+// Default value is only used when a component does not have any matching provider in the above component tree
 
-
-
-
-
+// ####################Context type Property =>consume the context value using context type property on a class
+// 1) export the usercontext itself
+// 2)Assign this userContext to the context type property on the class [componentE.js example]
 
 
 
@@ -442,3 +463,8 @@ useEffect(() =>{
 // In class Components, we used 'this.state' and 'this.setState,' In function component we use 'useState'
 
 
+this.setState(prevstate =>{
+  return {count: prevstate.count+ 1}
+})
+// class -> className
+// for -> htmlFor, onclick ->onClick

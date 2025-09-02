@@ -35,13 +35,62 @@ import Hero from './components/Hero';
 import ErrorBoundary from './components/ErrorBoundary';
 import ClickCounter from './components/ClickCounter';
 import HoverCounter from './components/HoverCounter';
+import ClickCounter2 from './components/ClickCounter2';
+import HoverCounter2 from './components/HoverCounter2';
+import User from './components/User';
+import CounterRender from './components/CounterRender';
+import ComponentC from './components/ComponentC';
+import { UserProvider } from './components/UserContext';
 function App() {
   // class App extends Component{
   //   render(){}
   // }
   return ( 
     <div className="App">
-    <HoverCounter/>
+      {/*//wrap ComponentC with UserProvider  */}
+    <UserProvider value= "Vishwas"> 
+      {/* above completes step 2 */}
+    <ComponentC/>              
+    </UserProvider>
+    {/* The Provider component is responsible for providing a value for all the descendant components . The value we want to provide is the username ,by using the value attribute  in the provider*/}
+    
+{/* 
+    <CounterRender
+     render = { (count, incrementCount) => (
+     <ClickCounter2 count = {count} incrementCount = {incrementCount}/>)}/>
+
+     <CounterRender
+     render = {(count,incrementCount) => (                                        // the prop need not be strictly called as render
+      <HoverCounter2 count = {count} incrementCount = {incrementCount}/>)}/> */}
+
+{/* // render prop, whose value is a function receives the count and incrementCount method and returns */}
+{/* VARIATION (doesn't make use of prop instead of that the children prop is used)*/}
+{/* 2 changes -; */}
+{/*  instead of render prop we passing the function in between the component opening and closing tag*/}
+
+{/* <CounterRender>
+{(count, incrementCount) => (
+  <ClickCounter2 count = {count} incrementCount={incrementCount}/>
+)}
+</CounterRender>
+
+<CounterRender>
+  {(count,incrementCount) => (
+    <HoverCounter2 count={count} incrementCount = {incrementCount}/>
+  )}
+</CounterRender> */}
+{/* Anything within the component's opening and closing tags will be passed as the children prop, then access to render the UI*/}
+
+
+
+
+{/* <HoverCounter2/>
+      <ClickCounter2/> */}
+      {/* <User name="Vishwas"/>  */}
+      {/* passing a function that returns the string "Vishwas" */}
+    {/* <User name= { () => 'Vishwas'} /> */}
+    {/* <User render={(isLoggedIn) =>isLoggedIn ? 'Vishwas' : 'Guest'} /> */}
+    {/* <HoverCounter/>
     <ClickCounter/>
 
       {/* <ErrorBoundary>
